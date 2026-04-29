@@ -646,6 +646,27 @@ exp5: `
 
 };
 
+/* This function checks if a card is visible on your screen */
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    }
+  }
+}
+
+/* This tells the computer: "Every time I scroll, check the cards!" */
+window.addEventListener("scroll", reveal);
+
+/* Run it once on start so the top stuff shows up */
+reveal();
+
 </script>
 
 </body>
