@@ -9,6 +9,18 @@
 
 <style>
 
+/* This hides the cards at the start */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+/* This makes them pop up when they hit the screen */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .exp-cta{
 font-size:13px;
