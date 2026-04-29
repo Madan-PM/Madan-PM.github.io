@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madan P M | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+.contact-link{
+text-decoration:none;
+color:var(--text);
+display:block;
+width:100%;
+height:100%;
+}
+
+.contact-card{
+text-align:center;
+transition:0.3s;
+}
+
+.contact-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.contact-card:hover .contact-link{
+color:var(--accent);
+}
+
+/* ================= ROOT ================= */
+:root{
+--bg:#ffffff;
+--text:#111;
+--card:#f5f5f7;
+--accent:#0071e3;
+--border:#e5e5e5;
+}
+
+body.dark{
+--bg:#0b0b0f;
+--text:#e5e5e7;
+--card:#1c1c1e;
+--accent:#0a84ff;
+--border:#2c2c2e;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:0.3s;
+}
+
+/* ================= NAV ================= */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:var(--bg);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+border-bottom:1px solid var(--border);
+z-index:1000;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+nav a{
+text-decoration:none;
+color:var(--text);
+opacity:0.7;
+font-size:14px;
+}
+nav a:hover{opacity:1}
+
+/* TOGGLE */
+.theme-toggle{
+display:flex;
+align-items:center;
+gap:8px;
+cursor:pointer;
+}
+
+.toggle-track{
+width:50px;
+height:26px;
+background:#ddd;
+border-radius:20px;
+position:relative;
+transition:0.3s;
+border:1px solid var(--border);
+}
+
+.toggle-thumb{
+width:22px;
+height:22px;
+background:#fff;
+border-radius:50%;
+position:absolute;
+top:1px;
+left:2px;
+transition:0.3s;
+box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+
+body.dark .toggle-track{
+background:var(--accent);
+}
+
+body.dark .toggle-thumb{
+transform:translateX(24px);
+}
+
+/* ================= MAIN ================= */
+.main{margin-top:90px}
+
+/* ================= HERO ================= */
+.hero{
+padding:60px 40px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero h2{
+margin-top:10px;
+color:var(--accent);
+}
+
+.hero p{
+margin-top:15px;
+max-width:800px;
+line-height:1.7;
+}
+
+/* ================= SECTION ================= */
+.section{
+padding:60px 40px;
+border-bottom:1px solid var(--border);
+}
+
+.section-title{
+font-size:26px;
+margin-bottom:25px;
+}
+
+/* ================= GRID ================= */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* ================= CARD ================= */
+.card{
+background:var(--card);
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+cursor:pointer;
+}
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* ================= REVIEWS ================= */
+.reviews-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+}
+
+.review img{
+width:100%;
+margin-top:10px;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* ================= MODAL ================= */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.modal img{
+max-width:90%;
+max-height:90%;
+}
+
+.modal-content{
+background:var(--card);
+padding:25px;
+border-radius:12px;
+max-width:650px;
+width:90%;
+line-height:1.6;
+}
+
+/* ================= CONTACT ================= */
+.contact-card{
+text-align:center;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+.reviews-grid{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:30px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Madan P M</h2>
+
+<nav>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+
+<div class="theme-toggle" onclick="toggleMode()">
+<span>☀️</span>
+<div class="toggle-track">
+<div class="toggle-thumb"></div>
+</div>
+<span>🌙</span>
+</div>
+
+</nav>
+</header>
+
+<div class="main">
+
+<!-- HERO -->
+<section class="hero">
+
+<h1>Hi, I'm Madan P M</h1>
+
+<h2>Operations & Claims Specialist | Customer Experience Leader</h2>
+
+<p>
+Results-driven professional with over 5 years of experience in BPO and health insurance operations. I specialize in transforming complex insurance challenges into seamless customer journeys by combining technical efficiency with a customer-first mindset.
+</p>
+
+<p style="margin-top:20px;"><strong>Throughout my career, I have:</strong></p>
+
+<div style="margin-top:10px; max-width:900px;">
+
+<p style="margin-bottom:10px;">
+<strong>✔ Mastered the Claims Lifecycle:</strong><br>
+Managed end-to-end reimbursement health insurance claims, from meticulous document verification to successful insurer coordination and resolution tracking.
+</p>
+
+<p style="margin-bottom:10px;">
+<strong>✔ Driven Operational Excellence:</strong><br>
+Reduced turnaround time (TAT) and optimized call flow management to improve handling efficiency and reduce customer wait times.
+</p>
+
+<p style="margin-bottom:10px;">
+<strong>✔ Led High-Performing Teams:</strong><br>
+Recognized as <strong>"Best Team Leader"</strong> and <strong>"Top Performer (CSAT)"</strong> for managing high-volume operations while consistently exceeding SLA and service quality targets.
+</p>
+
+<p style="margin-bottom:10px;">
+<strong>✔ Solved Complex Problems:</strong><br>
+Handled critical escalations and collaborated across cross-functional teams to resolve intricate customer issues and identify process gaps.
+</p>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+<h2 class="section-title">Skills</h2>
+
+<div class="grid">
+<div class="card">Claims Processing</div>
+<div class="card">Customer Experience</div>
+<div class="card">Escalation Handling</div>
+<div class="card">SLA & TAT</div>
+<div class="card">Process Optimization</div>
+<div class="card">Team Leadership</div>
+<div class="card">Freshdesk / CRM Tools</div>
+<div class="card">Excel & Google Workspace</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+<h2 class="section-title">Experience</h2>
+
+<div class="grid">
+
+<div class="card" onclick="openExp('exp1')">
+<h3>Operations Associate - Ditto</h3>
+<p>Jan 2025 – Apr 2026</p>
+</div>
+
+<div class="card" onclick="openExp('exp2')">
+<h3>Team Leader - Technotask</h3>
+<p>Jun 2023 – Nov 2024</p>
+</div>
+
+<div class="card" onclick="openExp('exp3')">
+<h3>Team Leader - Wise Code</h3>
+<p>Jun 2022 – Jun 2023</p>
+</div>
+
+<div class="card" onclick="openExp('exp4')">
+<h3>Assistant TL - Technotask</h3>
+<p>Sep 2021 – Jun 2022</p>
+</div>
+
+<div class="card" onclick="openExp('exp5')">
+<h3>Process Associate - Grassroots</h3>
+<p>Aug 2020 – Sep 2021</p>
+</div>
+
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+<h2 class="section-title">Customer Testimonials</h2>
+
+<div class="reviews-grid">
+
+<div class="card review"><p>Effortless process</p><img src="assets/images/review1.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Handled paperwork</p><img src="assets/images/review2.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Answered patiently</p><img src="assets/images/review3.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Available anytime</p><img src="assets/images/review4.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Seamless coordination</p><img src="assets/images/review5.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Customer-first</p><img src="assets/images/review6.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Professional</p><img src="assets/images/review7.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Efficient</p><img src="assets/images/review8.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Smooth process</p><img src="assets/images/review9.png" onclick="openModal(this.src)"></div>
+<div class="card review"><p>Customer-centric</p><img src="assets/images/review10.png" onclick="openModal(this.src)"></div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+<h2 class="section-title">Contact</h2>
+
+<div class="grid">
+
+<div class="card contact-card">
+<a href="mailto:madanpm05@gmail.com" class="contact-link">
+📧 Email: madanpm05@gmail.com
+</a>
+</div>
+
+<div class="card contact-card">
+<a href="tel:+918296141249" class="contact-link">
+📞 Phone: +91 8296141249
+</a>
+</div>
+
+<div class="card contact-card">
+<a href="https://www.linkedin.com/in/madanpm/" target="_blank" class="contact-link">
+🔗 linkedin.com/in/madanpm
+</a>
+</div>
+
+</div>
+</section>
+</div>
+
+<!-- MODALS -->
+<div id="modal" class="modal" onclick="closeModal()">
+<img id="modal-img">
+</div>
+
+<div id="expModal" class="modal" onclick="closeExp()">
+<div class="modal-content" id="expContent"></div>
+</div>
+
+<script>
+
+/* DARK MODE */
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+/* IMAGE MODAL */
+function openModal(src){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modal-img").src=src;
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+/* EXPERIENCE MODAL */
+function openExp(id){
+document.getElementById("expModal").style.display="flex";
+document.getElementById("expContent").innerHTML = expData[id];
+}
+
+function closeExp(){
+document.getElementById("expModal").style.display="none";
+}
+
+/* EXPERIENCE DATA */
+const expData = {
+
+exp1: `
+<ul>
+<li>Managed end-to-end reimbursement health insurance claims</li>
+<li>Document verification & insurer coordination</li>
+<li>Ensured timely claim processing & resolution tracking</li>
+<li>Primary customer support contact (high FCR)</li>
+<li>Handled high-volume calls & escalations</li>
+<li>Maintained SLA and improved CSAT</li>
+<li>Reduced TAT by resolving complex issues</li>
+<li>Identified process gaps & improved workflows</li>
+<li>Optimized call flow to reduce wait time</li>
+<li>Worked as an individual contributor managing claim volumes</li>
+</ul>
+`,
+
+exp2: `
+<ul>
+<li>Led team handling high-volume customer support operations</li>
+<li>Ensured SLA adherence and service quality</li>
+<li>Monitored KPIs (CSAT, SLA, QA, TAT)</li>
+<li>Handled escalations and critical issues</li>
+<li>Conducted coaching & feedback sessions</li>
+<li>Ensured process compliance (SOPs)</li>
+<li>Awarded “Best Team Leader”</li>
+<li>Achieved Top Performer (CSAT) recognition</li>
+</ul>
+`,
+
+exp3: `
+<ul>
+<li>Led operations and sales teams</li>
+<li>Achieved performance targets consistently</li>
+<li>Maintained high service quality</li>
+<li>Collaborated with cross-functional teams</li>
+<li>Improved workflow efficiency</li>
+<li>Resolved operational challenges</li>
+</ul>
+`,
+
+exp4: `
+<ul>
+<li>Supported Team Leader in operations management</li>
+<li>Ensured team performance and productivity</li>
+<li>Improved customer satisfaction</li>
+<li>Assisted in workflow optimization</li>
+<li>Helped manage escalations</li>
+</ul>
+`,
+
+exp5: `
+<ul>
+<li>Managed backend operations and processes</li>
+<li>Performed data management tasks</li>
+<li>Supported administrative workflows</li>
+<li>Ensured process accuracy and efficiency</li>
+</ul>
+`
+
+};
+
+</script>
+
+</body>
+</html>
