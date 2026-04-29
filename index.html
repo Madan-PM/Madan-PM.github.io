@@ -44,22 +44,24 @@ color:var(--accent);
 }
 
 /* ================= ROOT ================= */
-:root{
---bg:#ffffff;
---text:#111;
---card:#f5f5f7;
---accent:#0071e3;
---border:#e5e5e5;
+/* ================= ROOT ================= */
+:root {
+  --bg: #f5f5f7;
+  --text: #1d1d1f;
+  /* This is the Apple "Glass" color */
+  --card: rgba(255, 255, 255, 0.7); 
+  --accent: #0071e3;
+  --border: rgba(0, 0, 0, 0.1);
 }
 
-body.dark{
---bg:#0b0b0f;
---text:#e5e5e7;
---card:#1c1c1e;
---accent:#0a84ff;
---border:#2c2c2e;
+body.dark {
+  --bg: #000000;
+  --text: #f5f5f7;
+  /* Dark mode "Glass" color */
+  --card: rgba(28, 28, 30, 0.7);
+  --accent: #0a84ff;
+  --border: rgba(255, 255, 255, 0.1);
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
