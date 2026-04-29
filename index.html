@@ -72,17 +72,21 @@ transition:0.3s;
 }
 
 /* ================= NAV ================= */
-header{
-position:fixed;
-top:0;
-width:100%;
-background:var(--bg);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-border-bottom:1px solid var(--border);
-z-index:1000;
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* Glass color from our new ROOT variables */
+  background: var(--card);
+  /* The "Magic" Apple Blur effect */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
 }
 
 nav{
@@ -179,15 +183,20 @@ gap:20px;
 }
 
 /* ================= CARD ================= */
-.card{
-background:var(--card);
-padding:20px;
-border-radius:12px;
-transition:0.3s;
-cursor:pointer;
-}
-.card:hover{
-transform:translateY(-5px);
+.card {
+  background: var(--card);
+  /* Glass effect for your Skill and Experience cards */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  padding: 25px;
+  /* Rounded corners like an iPhone screen */
+  border-radius: 20px; 
+  border: 1px solid var(--border);
+  /* This makes the hover movement feel smooth and expensive */
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 /* ================= REVIEWS ================= */
