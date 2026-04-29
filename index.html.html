@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madan P M | Portfolio</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* NAVBAR */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #94a3b8;
+    text-decoration: none;
+}
+
+nav a:hover { color: #14b8a6; }
+
+.btn {
+    background: #14b8a6;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 60px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+}
+
+.hero-text span { color: #14b8a6; }
+
+.hero img {
+    width: 350px;
+    border-radius: 20px;
+}
+
+/* SECTION */
+.section {
+    padding: 50px 40px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* REVIEWS */
+.review strong {
+    color: #14b8a6;
+}
+
+.review img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    header { flex-direction: column; gap: 10px; }
+    .hero { flex-direction: column; padding: 30px; }
+    .hero img { width: 100%; margin-top: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Madan P M</h2>
+    <nav>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="resume.pdf" class="btn" download>Resume</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Hi, I'm <span>Madan P M</span></h1>
+        <h2>Operations & Claims Specialist</h2>
+        <p>5+ years experience in BPO & Insurance operations, specializing in claims handling, customer satisfaction, and process optimization.</p>
+        <br>
+        <a href="resume.pdf" class="btn" download>Download Resume</a>
+    </div>
+
+    <img src="assets/images/hero.png" alt="profile">
+</section>
+
+<section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="card">
+        Customer Support • Claims Handling • SLA • CSAT • Escalations • Freshdesk • Exotel • Excel • Power BI • Python (Basic)
+    </div>
+</section>
+
+<section id="experience" class="section">
+    <h2>Experience</h2>
+
+    <div class="card">
+        <h3>Operations Associate - Ditto Insurance</h3>
+        <p>Handled reimbursement claims, insurer coordination, and customer queries.</p>
+    </div>
+
+    <div class="card">
+        <h3>Team Leader - Technotask Business Solutions</h3>
+        <p>Managed team performance, CSAT, SLA, and escalations.</p>
+    </div>
+
+    <div class="card">
+        <h3>Team Leader - Wise Code Pvt Ltd</h3>
+        <p>Led operations and improved workflow efficiency.</p>
+    </div>
+
+    <div class="card">
+        <h3>Assistant Team Leader - Technotask</h3>
+        <p>Supported operations and team performance.</p>
+    </div>
+
+    <div class="card">
+        <h3>Process Associate - Grassroots BPO Private Solutions | Mysore</h3>
+        <p>Handled operational processes, data management, and backend support.</p>
+    </div>
+
+</section>
+
+<section id="reviews" class="section">
+    <h2>Customer Testimonials & Impact</h2>
+
+    <div class="card review">
+        <p><strong>Madan P M</strong> mentioned in appreciation:</p>
+        <p>“Received immense help and support to get 99% claim amount.”</p>
+        <img src="assets/images/review1.png">
+    </div>
+
+    <div class="card review">
+        <p><strong>Madan P M</strong> praised for seamless claim process:</p>
+        <p>“Smooth, transparent, and hassle-free experience.”</p>
+        <img src="assets/images/review2.png">
+    </div>
+
+    <div class="card review">
+        <p><strong>Madan P M</strong> recognized for customer support:</p>
+        <p>“Excellent communication and fast resolution.”</p>
+        <img src="assets/images/review3.png">
+    </div>
+
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: madanpm05@gmail.com</p>
+    <p>Phone: +91 8296141249</p>
+    <p><a href="https://www.linkedin.com/in/madanpm/" style="color:#14b8a6;">LinkedIn</a></p>
+</section>
+
+<footer>
+    <p>© 2026 Madan P M</p>
+</footer>
+
+</body>
+</html>
