@@ -271,27 +271,26 @@ body {
 
 .hero-img-container {
   position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg), 0 0 0 1px var(--glass-border);
-  transform: perspective(800px) rotateY(-5deg) rotateX(3deg);
-  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-  animation: float 6s ease-in-out infinite;
-  background: var(--bg3);
+  background: transparent;
   min-height: 380px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.18));
 }
 
 .hero-img-container:hover {
-  transform: perspective(800px) rotateY(0deg) rotateX(0deg) scale(1.02);
+  filter: drop-shadow(0 32px 60px rgba(0,113,227,0.22));
 }
 
 .hero-img-container img {
   width: 100%;
+  max-width: 380px;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: bottom center;
 }
 
 .hero-img-placeholder {
@@ -717,11 +716,36 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+#imgModal .img-modal-close {
+  position: fixed;
+  top: 1.2rem; right: 1.2rem;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#imgModal .img-modal-close:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
 }
 
 #modal-img {
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 85vh;
   border-radius: var(--radius);
   box-shadow: 0 32px 80px rgba(0,0,0,0.5);
   display: block;
@@ -772,8 +796,8 @@ footer {
 }
 
 @keyframes float {
-  0%, 100% { transform: perspective(800px) rotateY(-5deg) rotateX(3deg) translateY(0); }
-  50%       { transform: perspective(800px) rotateY(-5deg) rotateX(3deg) translateY(-12px); }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
 }
 
 @keyframes pulse {
@@ -1081,6 +1105,7 @@ footer {
 <!-- ─── IMAGE MODAL ─── -->
 <div id="imgModal" class="modal">
   <div class="modal-box">
+    <button class="img-modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     <img id="modal-img" src="" alt="Review screenshot"/>
   </div>
 </div>
@@ -1185,7 +1210,13 @@ window.addEventListener('click', function(e) {
   const expModal = document.getElementById('expModal');
   const imgModal = document.getElementById('imgModal');
   if (e.target === expModal) closeExp();
-  if (e.target === imgModal) closeModal();
+  // Close image modal when clicking the backdrop or anywhere outside the image
+  if (imgModal.classList.contains('show') &&
+      !e.target.closest('#modal-img') &&
+      !e.target.closest('.img-modal-close') &&
+      e.target !== document.querySelector('.img-modal-close')) {
+    if (e.target === imgModal || e.target.closest('#imgModal')) closeModal();
+  }
 });
 
 document.addEventListener('keydown', function(e) {
