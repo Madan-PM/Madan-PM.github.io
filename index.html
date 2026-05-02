@@ -164,7 +164,7 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -251,61 +251,49 @@ body {
 /* ─── HERO IMAGE ─── */
 .hero-img-wrap {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  padding-right: 40px;
+  position: relative;
   animation: heroIn 0.8s 0.3s both;
 }
 
-.hero-img-outer {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-}
-
-.hero-img-bg {
-  position: absolute; inset: -20px;
-  background: radial-gradient(circle, rgba(0,113,227,0.1), transparent 70%);
+/* Soft glow behind character */
+.hero-img-wrap::before {
+  content: '';
+  position: absolute;
+  width: 520px; height: 520px;
   border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,113,227,0.10), transparent 70%);
+  filter: blur(40px);
   animation: pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.hero-img-container {
+.hero-img-bg { display: none; }
+
+.hero-img-outer { display: none; }
+
+.hero-character-img {
   position: relative;
-  background: transparent;
-  min-height: 380px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  animation: float 6s ease-in-out infinite;
-  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.18));
-}
+  z-index: 1;
 
-.hero-img-container:hover {
-  filter: drop-shadow(0 32px 60px rgba(0,113,227,0.22));
-}
-
-.hero-img-container img {
-  width: 100%;
-  max-width: 380px;
+  width: 600px;        /* BIGGER */
+  max-width: none;
+  height: auto;
   display: block;
-  object-fit: contain;
-  object-position: bottom center;
-}
 
-.hero-img-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  color: var(--text3);
-  font-size: 0.82rem;
-  padding: 3rem;
-  text-align: center;
-}
+  transform: scale(1.15);
 
-.hero-img-placeholder svg { opacity: 0.4; }
+  animation: float 6s ease-in-out infinite;
+
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.3));
+  transition: all 0.4s ease;
+}
+.hero-character-img:hover {
+  filter: drop-shadow(0 28px 50px rgba(0, 113, 227, 0.28));
+}
 
 /* ─── SECTION COMMONS ─── */
 .section {
@@ -503,7 +491,7 @@ body {
   border: 1px solid var(--glass-border);
   transition: transform 0.3s, box-shadow 0.3s;
   background: var(--bg3);
-  aspect-ratio: 16/9;
+  aspect-ratio: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -517,8 +505,8 @@ body {
 
 .review-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;           /* ✅ shows full image */
+  object-fit: contain;    /* ✅ no cropping */
   display: block;
 }
 
@@ -825,6 +813,12 @@ footer {
   .skills-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 }
+
+.review-item {
+  padding: 10px;
+  background: var(--glass-bg);
+}
+
 </style>
 </head>
 <body>
@@ -865,21 +859,7 @@ footer {
     </div>
 
     <div class="hero-img-wrap">
-      <div class="hero-img-outer">
-        <div class="hero-img-bg"></div>
-        <div class="hero-img-container" id="heroImgContainer">
-          <!-- Image loads if file exists, otherwise shows placeholder -->
-          <img src="assets/images/hero-new.png" alt="Madan P M"
-               onerror="this.style.display='none'; document.getElementById('heroPlaceholder').style.display='flex';"
-               style="width:100%; display:block;"/>
-          <div class="hero-img-placeholder" id="heroPlaceholder" style="display:none;">
-            <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
-            </svg>
-            <span>Add hero-new.png to<br>assets/images/</span>
-          </div>
-        </div>
-      </div>
+      <img class="hero-character-img" src="assets/images/hero-new.png" alt="Madan P M"/>
     </div>
   </div>
 </section>
