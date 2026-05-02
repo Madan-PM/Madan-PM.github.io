@@ -8,230 +8,85 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-.exp-cta{
-font-size:13px;
-color:var(--accent);
-margin-top:10px;
-font-weight:500;
-transition:0.3s;
+:root{
+--bg:#f5f5f7;
+--text:#1d1d1f;
+--card:rgba(255,255,255,0.7);
+--accent:#0071e3;
+--border:rgba(0,0,0,0.1);
+}
+body.dark{
+--bg:#000;
+--text:#f5f5f7;
+--card:rgba(28,28,30,0.7);
+--accent:#0a84ff;
+--border:rgba(255,255,255,0.1);
 }
 
-.card:hover .exp-cta{
-transform:translateX(5px);
-}
-  
-.contact-link{
-text-decoration:none;
-color:var(--text);
-display:block;
-width:100%;
-height:100%;
-}
-
-.contact-card{
-text-align:center;
-transition:0.3s;
-}
-
-.contact-card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-.contact-card:hover .contact-link{
-color:var(--accent);
-}
-
-/* ================= ROOT ================= */
-/* ================= ROOT ================= */
-:root {
-  --bg: #f5f5f7;
-  --text: #1d1d1f;
-  /* This is the Apple "Glass" color */
-  --card: rgba(255, 255, 255, 0.7); 
-  --accent: #0071e3;
-  --border: rgba(0, 0, 0, 0.1);
-}
-
-body.dark {
-  --bg: #000000;
-  --text: #f5f5f7;
-  /* Dark mode "Glass" color */
-  --card: rgba(28, 28, 30, 0.7);
-  --accent: #0a84ff;
-  --border: rgba(255, 255, 255, 0.1);
-}
 *{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
 
-body{
-font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--text);
-transition:0.3s;
+header{
+position:fixed;top:0;width:100%;
+background:var(--card);
+backdrop-filter:blur(20px);
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 40px;border-bottom:1px solid var(--border);
+z-index:1000;
 }
 
-/* ================= NAV ================= */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  /* Glass color from our new ROOT variables */
-  background: var(--card);
-  /* The "Magic" Apple Blur effect */
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  border-bottom: 1px solid var(--border);
-  z-index: 1000;
-}
-
-nav{
-display:flex;
-align-items:center;
-gap:20px;
-}
-
-nav a{
-text-decoration:none;
-color:var(--text);
-opacity:0.7;
-font-size:14px;
-}
+nav{display:flex;gap:20px;align-items:center}
+nav a{color:var(--text);text-decoration:none;opacity:.7}
 nav a:hover{opacity:1}
 
-/* TOGGLE */
-.theme-toggle{
-display:flex;
-align-items:center;
-gap:8px;
-cursor:pointer;
-}
+.theme-toggle{display:flex;align-items:center;gap:8px;cursor:pointer}
+.toggle-track{width:50px;height:26px;background:#ddd;border-radius:20px;position:relative}
+.toggle-thumb{width:22px;height:22px;background:#fff;border-radius:50%;position:absolute;top:1px;left:2px;transition:.3s}
+body.dark .toggle-track{background:var(--accent)}
+body.dark .toggle-thumb{transform:translateX(24px)}
 
-.toggle-track{
-width:50px;
-height:26px;
-background:#ddd;
-border-radius:20px;
-position:relative;
-transition:0.3s;
-border:1px solid var(--border);
-}
-
-.toggle-thumb{
-width:22px;
-height:22px;
-background:#fff;
-border-radius:50%;
-position:absolute;
-top:1px;
-left:2px;
-transition:0.3s;
-box-shadow:0 2px 6px rgba(0,0,0,0.2);
-}
-
-body.dark .toggle-track{
-background:var(--accent);
-}
-
-body.dark .toggle-thumb{
-transform:translateX(24px);
-}
-
-/* ================= MAIN ================= */
 .main{margin-top:90px}
 
-/* ================= HERO ================= */
-.hero{
-padding:60px 40px;
-}
+.section{padding:60px 40px;border-bottom:1px solid var(--border)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 
-.hero h1{
-font-size:42px;
+.card{
+background:var(--card);
+backdrop-filter:blur(12px);
+padding:25px;border-radius:18px;
+border:1px solid var(--border);
+cursor:pointer;transition:.3s;
 }
+.card:hover{transform:translateY(-6px)}
 
-.hero h2{
-margin-top:10px;
-color:var(--accent);
-}
+.exp-cta{font-size:13px;color:var(--accent);margin-top:10px}
 
-.hero p{
-margin-top:15px;
-max-width:800px;
-line-height:1.7;
-}
-
-/* ================= SECTION ================= */
-.section{
-padding:60px 40px;
-border-bottom:1px solid var(--border);
-}
-
-.section-title{
-font-size:26px;
-margin-bottom:25px;
-}
-
-/* ================= GRID ================= */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-/* ================= CARD ================= */
-.card {
-  background: var(--card);
-  /* Glass effect for your Skill and Experience cards */
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  padding: 25px;
-  /* Rounded corners like an iPhone screen */
-  border-radius: 20px; 
-  border: 1px solid var(--border);
-  /* This makes the hover movement feel smooth and expensive */
-  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-/* ================= REVIEWS ================= */
+/* REVIEWS */
 .reviews-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:25px;
 }
-
 .review img{
 width:100%;
-margin-top:10px;
 border-radius:10px;
+margin-top:10px;
 cursor:pointer;
 }
 
-/* ================= MODAL ================= */
+/* MODAL (FIXED) */
 .modal{
 display:none;
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.85);
 justify-content:center;
 align-items:center;
 z-index:2000;
 }
-
-.modal img{
-max-width:90%;
-max-height:90%;
-}
-
+.modal.show{display:flex}
+.modal img{max-width:90%;max-height:90%}
 .modal-content{
 background:var(--card);
 padding:25px;
@@ -241,148 +96,9 @@ width:90%;
 line-height:1.6;
 }
 
-/* ================= CONTACT ================= */
-.contact-card{
-text-align:center;
-}
-
-/* ================= MOBILE ================= */
 @media(max-width:768px){
-.reviews-grid{
-grid-template-columns:1fr;
+.reviews-grid{grid-template-columns:1fr}
 }
-.hero h1{
-font-size:30px;
-}
-}
-
-/* ===== PREMIUM MICRO INTERACTIONS ===== */
-
-*{
-transition: all 0.25s ease;
-}
-
-.card{
-position:relative;
-overflow:hidden;
-}
-
-.card:hover{
-transform:translateY(-8px) scale(1.01);
-box-shadow:0 20px 40px rgba(0,0,0,0.12);
-}
-
-.card::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
-transition:0.6s;
-}
-
-.card:hover::before{
-left:100%;
-}
-
-.exp-cta{
-font-size:13px;
-color:var(--accent);
-margin-top:12px;
-font-weight:500;
-display:inline-block;
-}
-
-.exp-cta::after{
-content:" →";
-display:inline-block;
-transition:0.3s;
-}
-
-.card:hover .exp-cta::after{
-transform:translateX(6px);
-}
-
-.card:active::after{
-content:"";
-position:absolute;
-top:50%;
-left:50%;
-width:10px;
-height:10px;
-background:rgba(255,255,255,0.4);
-border-radius:50%;
-transform:translate(-50%, -50%);
-animation:ripple 0.6s linear;
-}
-
-@keyframes ripple{
-to{
-width:300px;
-height:300px;
-opacity:0;
-}
-}
-
-.review img:hover{
-transform:scale(1.05);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-.modal{
-opacity:0;
-pointer-events:none;
-transition:0.3s;
-}
-
-.modal.show{
-opacity:1;
-pointer-events:auto;
-}
-
-.modal-content{
-transform:scale(0.9);
-transition:0.3s;
-}
-
-.modal.show .modal-content{
-transform:scale(1);
-}
-
-nav a{
-position:relative;
-}
-
-nav a::after{
-content:"";
-position:absolute;
-bottom:-5px;
-left:0;
-width:0%;
-height:2px;
-background:var(--accent);
-transition:0.3s;
-}
-
-nav a:hover::after{
-width:100%;
-}
-
-/* This hides the cards at the start */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-/* This makes them pop up when they hit the screen */
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 </style>
 </head>
 
@@ -398,110 +114,62 @@ width:100%;
 <a href="#contact">Contact</a>
 
 <div class="theme-toggle" onclick="toggleMode()">
-<span>☀️</span>
-<div class="toggle-track">
-<div class="toggle-thumb"></div>
+☀️
+<div class="toggle-track"><div class="toggle-thumb"></div></div>
+🌙
 </div>
-<span>🌙</span>
-</div>
-
 </nav>
 </header>
 
 <div class="main">
 
-<!-- HERO -->
-<section class="hero">
-
+<section class="section">
 <h1>Hi, I'm Madan P M</h1>
-
 <h2>Operations & Claims Specialist | Customer Experience Leader</h2>
-
-<p>
-Results-driven professional with over 5 years of experience in BPO and health insurance operations. I specialize in transforming complex insurance challenges into seamless customer journeys by combining technical efficiency with a customer-first mindset.
-</p>
-
-<p style="margin-top:20px;"><strong>Throughout my career, I have:</strong></p>
-
-<div style="margin-top:10px; max-width:900px;">
-
-<p style="margin-bottom:10px;">
-<strong>✔ Mastered the Claims Lifecycle:</strong><br>
-Managed end-to-end reimbursement health insurance claims, from meticulous document verification to successful insurer coordination and resolution tracking.
-</p>
-
-<p style="margin-bottom:10px;">
-<strong>✔ Driven Operational Excellence:</strong><br>
-Reduced turnaround time (TAT) and optimized call flow management to improve handling efficiency and reduce customer wait times.
-</p>
-
-<p style="margin-bottom:10px;">
-<strong>✔ Led High-Performing Teams:</strong><br>
-Recognized as <strong>"Best Team Leader"</strong> and <strong>"Top Performer (CSAT)"</strong> for managing high-volume operations while consistently exceeding SLA and service quality targets.
-</p>
-
-<p style="margin-bottom:10px;">
-<strong>✔ Solved Complex Problems:</strong><br>
-Handled critical escalations and collaborated across cross-functional teams to resolve intricate customer issues and identify process gaps.
-</p>
-
-</div>
-
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="section">
-<h2 class="section-title">Skills</h2>
-
+<h2>Skills</h2>
 <div class="grid">
-<div class="card reveal">Claims Processing</div>
-<div class="card reveal">Customer Experience</div>
-<div class="card reveal">Escalation Handling</div>
-<div class="card reveal">SLA & TAT</div>
-<div class="card reveal">Process Optimization</div>
-<div class="card reveal">Team Leadership</div>
-<div class="card reveal">Freshdesk / CRM Tools</div>
-<div class="card reveal">Excel & Google Workspace</div>
+<div class="card">Claims Processing</div>
+<div class="card">Customer Experience</div>
+<div class="card">Escalation Handling</div>
+<div class="card">SLA & TAT</div>
+<div class="card">Process Optimization</div>
+<div class="card">Team Leadership</div>
 </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience" class="section">
-<h2 class="section-title">Experience</h2>
-<p style="font-size:13px;opacity:.6;margin-bottom:15px;">
-💡 Click any role to explore detailed responsibilities
-</p>
+<h2>Experience</h2>
 
 <div class="grid">
 
-<div class="card reveal" onclick="openExp('exp1')">
+<div class="card" onclick="openExp('exp1')">
 <h3>Operations Associate - Ditto</h3>
-<p>Jan 2025 – Apr 2026</p>
-<p class="exp-cta">View Details</p>
+<p class="exp-cta">View Details →</p>
 </div>
 
-<div class="card reveal" onclick="openExp('exp2')">
+<div class="card" onclick="openExp('exp2')">
 <h3>Team Leader - Technotask</h3>
-<p>Jun 2023 – Nov 2024</p>
-<p class="exp-cta">View Details</p>
+<p class="exp-cta">View Details →</p>
 </div>
 
-<div class="card reveal" onclick="openExp('exp3')">
+<div class="card" onclick="openExp('exp3')">
 <h3>Team Leader - Wise Code</h3>
-<p>Jun 2022 – Jun 2023</p>
-<p class="exp-cta">View Details</p>
+<p class="exp-cta">View Details →</p>
 </div>
 
-<div class="card reveal" onclick="openExp('exp4')">
+<div class="card" onclick="openExp('exp4')">
 <h3>Assistant TL - Technotask</h3>
-<p>Sep 2021 – Jun 2022</p>
-<p class="exp-cta">View Details</p>
+<p class="exp-cta">View Details →</p>
 </div>
 
-<div class="card reveal" onclick="openExp('exp5')">
+<div class="card" onclick="openExp('exp5')">
 <h3>Process Associate - Grassroots</h3>
-<p>Aug 2020 – Sep 2021</p>
-<p class="exp-cta">View Details</p>
+<p class="exp-cta">View Details →</p>
 </div>
 
 </div>
@@ -509,50 +177,34 @@ Handled critical escalations and collaborated across cross-functional teams to r
 
 <!-- REVIEWS -->
 <section id="reviews" class="section">
-<h2 class="section-title">Customer Testimonials</h2>
+<h2>Customer Testimonials</h2>
 
 <div class="reviews-grid">
 
-<div class="card review reveal"><p>Madan makes the entire insurance process effortless and stress-free.</p><img src="assets/images/review1.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>Made a complex claims process effortless by handling all the paperwork and follow-ups.</p><img src="assets/images/review2.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>Patiently answers every question and remains present throughout the entire claims process.</p><img src="assets/images/review3.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>Available on call and WhatsApp whenever needed during an emergency.</p><img src="assets/images/review4.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>akes over the hassle of liaising with providers to ensure you get the claim you're entitled to.</p><img src="assets/images/review5.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>Rare to find such responsive and customer-first service these days.</p><img src="assets/images/review6.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>Handled the entire experience, from documentation to final settlement, with the utmost professionalism.</p><img src="assets/images/review7.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>Combines efficiency with genuine care to make the process seamless and stress-free.</p><img src="assets/images/review8.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>Turns a process usually full of confusion and delays into one that is incredibly smooth and quick.</p><img src="assets/images/review9.png" onclick="openModal(this.src)"></div>
-<div class="card review reveal"><p>Refreshing to see such customer-centric service in the insurance sector.</p><img src="assets/images/review10.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review1.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review2.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review3.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review4.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review5.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review6.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review7.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review8.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review9.png" onclick="openModal(this.src)"></div>
+<div class="card review"><img src="assets/images/review10.png" onclick="openModal(this.src)"></div>
 
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-<h2 class="section-title">Contact</h2>
-
+<h2>Contact</h2>
 <div class="grid">
-
-<div class="card contact-card reveal">
-<a href="mailto:madanpm05@gmail.com" class="contact-link">
-📧 Email: madanpm05@gmail.com
-</a>
-</div>
-
-<div class="card contact-card reveal">
-<a href="tel:+918296141249" class="contact-link">
-📞 Phone: +91 8296141249
-</a>
-</div>
-
-<div class="card contact-card reveal">
-<a href="https://www.linkedin.com/in/madanpm/" target="_blank" class="contact-link">
-🔗 linkedin.com/in/madanpm
-</a>
-</div>
-
+<div class="card"><a href="mailto:madanpm05@gmail.com">Email</a></div>
+<div class="card"><a href="tel:+918296141249">Call</a></div>
+<div class="card"><a href="https://www.linkedin.com/in/madanpm/" target="_blank">LinkedIn</a></div>
 </div>
 </section>
+
 </div>
 
 <!-- MODALS -->
@@ -565,38 +217,28 @@ Handled critical escalations and collaborated across cross-functional teams to r
 </div>
 
 <script>
+function toggleMode(){document.body.classList.toggle("dark");}
 
-/* DARK MODE */
-function toggleMode(){
-document.body.classList.toggle("dark");
-}
-
-/* IMAGE MODAL */
 function openModal(src){
-const modal = document.getElementById("modal");
-modal.classList.add("show");
+document.getElementById("modal").classList.add("show");
 document.getElementById("modal-img").src = src;
 }
-
 function closeModal(){
 document.getElementById("modal").classList.remove("show");
 }
 
 function openExp(id){
-const modal = document.getElementById("expModal");
-modal.classList.add("show");
+document.getElementById("expModal").classList.add("show");
 document.getElementById("expContent").innerHTML = expData[id];
 }
-
 function closeExp(){
 document.getElementById("expModal").classList.remove("show");
 }
 
-/* EXPERIENCE DATA */
+/* FULL EXPERIENCE DATA */
 const expData = {
 
-exp1: `
-<ul>
+exp1:`<ul>
 <li>Managed end-to-end reimbursement health insurance claims</li>
 <li>Document verification & insurer coordination</li>
 <li>Ensured timely claim processing & resolution tracking</li>
@@ -607,11 +249,9 @@ exp1: `
 <li>Identified process gaps & improved workflows</li>
 <li>Optimized call flow to reduce wait time</li>
 <li>Worked as an individual contributor managing claim volumes</li>
-</ul>
-`,
+</ul>`,
 
-exp2: `
-<ul>
+exp2:`<ul>
 <li>Led team handling high-volume customer support operations</li>
 <li>Ensured SLA adherence and service quality</li>
 <li>Monitored KPIs (CSAT, SLA, QA, TAT)</li>
@@ -620,62 +260,33 @@ exp2: `
 <li>Ensured process compliance (SOPs)</li>
 <li>Awarded “Best Team Leader”</li>
 <li>Achieved Top Performer (CSAT) recognition</li>
-</ul>
-`,
+</ul>`,
 
-exp3: `
-<ul>
+exp3:`<ul>
 <li>Led operations and sales teams</li>
 <li>Achieved performance targets consistently</li>
 <li>Maintained high service quality</li>
 <li>Collaborated with cross-functional teams</li>
 <li>Improved workflow efficiency</li>
 <li>Resolved operational challenges</li>
-</ul>
-`,
+</ul>`,
 
-exp4: `
-<ul>
+exp4:`<ul>
 <li>Supported Team Leader in operations management</li>
 <li>Ensured team performance and productivity</li>
 <li>Improved customer satisfaction</li>
 <li>Assisted in workflow optimization</li>
 <li>Helped manage escalations</li>
-</ul>
-`,
+</ul>`,
 
-exp5: `
-<ul>
+exp5:`<ul>
 <li>Managed backend operations and processes</li>
 <li>Performed data management tasks</li>
 <li>Supported administrative workflows</li>
 <li>Ensured process accuracy and efficiency</li>
-</ul>
-`
+</ul>`
 
 };
-
-/* This function checks if a card is visible on your screen */
-function reveal() {
-  var reveals = document.querySelectorAll(".reveal");
-
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    var elementVisible = 20;
-
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add("active");
-    }
-  }
-}
-
-/* This tells the computer: "Every time I scroll, check the cards!" */
-window.addEventListener("scroll", reveal);
-
-/* Run it once on start so the top stuff shows up */
-reveal();
-
 </script>
 
 </body>
