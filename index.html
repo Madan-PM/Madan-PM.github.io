@@ -208,15 +208,32 @@ line-height:1.6;
 </div>
 
 <!-- MODALS -->
-<div id="modal" class="modal" onclick="closeModal()">
-<img id="modal-img">
+<!-- IMAGE MODAL -->
+<div id="modal" class="modal">
+  <img id="modal-img">
 </div>
 
-<div id="expModal" class="modal" onclick="closeExp()">
-<div class="modal-content" id="expContent"></div>
+<!-- EXPERIENCE MODAL -->
+<div id="expModal" class="modal">
+  <div class="modal-content" id="expContent"></div>
 </div>
 
 <script>
+
+// Close modal when clicking OUTSIDE content
+window.onclick = function(event){
+  const modal = document.getElementById("modal");
+  const expModal = document.getElementById("expModal");
+
+  if(event.target === modal){
+    modal.classList.remove("show");
+  }
+
+  if(event.target === expModal){
+    expModal.classList.remove("show");
+  }
+};
+  
 function toggleMode(){document.body.classList.toggle("dark");}
 
 function openModal(src){
