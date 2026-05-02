@@ -145,6 +145,32 @@ font-size:24px;
 display:block;
 }
 
+.hero-content{
+max-width:800px;
+}
+
+.highlight{
+color:var(--accent);
+}
+
+.hero-summary{
+margin-top:12px;
+line-height:1.6;
+opacity:0.9;
+}
+
+.hero-points{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+font-size:14px;
+}
+
+.hero-points p{
+margin:0;
+}
+
 </style>
 </head>
 
@@ -170,9 +196,22 @@ display:block;
 <div class="main">
 
 <section class="section">
-<h1>Hi, I'm Madan P M</h1>
-<h2>Operations & Claims Specialist | Customer Experience Leader</h2>
-</section>
+<div class="hero-content">
+  <h1>Hi, I'm <span class="highlight">Madan P M</span></h1>
+  
+  <h2>Operations & Claims Specialist | Customer Experience Leader</h2>
+
+  <p class="hero-summary">
+    Results-driven professional with 5+ years in BPO and health insurance operations. I specialize in simplifying complex claims processes and delivering seamless, customer-first experiences.
+  </p>
+
+  <div class="hero-points">
+    <p>✔ <strong>End-to-End Claims Handling:</strong> From documentation to final settlement</p>
+    <p>✔ <strong>Operational Excellence:</strong> Reduced TAT and improved process efficiency</p>
+    <p>✔ <strong>Team Leadership:</strong> Best Team Leader & Top CSAT Performer</p>
+    <p>✔ <strong>Problem Solving:</strong> Resolved escalations with cross-functional teams</p>
+  </div>
+</div>
 
 <!-- SKILLS -->
 <section id="skills" class="section">
